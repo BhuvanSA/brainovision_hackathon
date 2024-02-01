@@ -23,9 +23,11 @@ import {
 import { useEffect, useState } from 'react';
 import { MdAutoAwesome, MdBolt, MdEdit, MdPerson } from 'react-icons/md';
 import Bg from '../public/img/chat/bg-image.png';
+// import '../styles/globals.css';
 
 export default function Chat(props: { apiKeyApp: string }) {
   const [fileName, setFileName] = useState<string>('Select File');
+  const [file, setFile] = useState<File>();
   // *** If you use .env.local variable for your API key, method which we recommend, use the apiKey variable commented below
   const { apiKeyApp } = props;
   // Input States
@@ -66,10 +68,10 @@ export default function Chat(props: { apiKeyApp: string }) {
     // Chat post conditions(maximum number of characters, valid message etc.)
     const maxCodeLength = model === 'gpt-3.5-turbo' ? 700 : 700;
 
-    if (!apiKeyApp?.includes('sk-') && !apiKey?.includes('sk-')) {
-      alert('Please enter an API key.');
-      return;
-    }
+    // if (!apiKeyApp?.includes('sk-') && !apiKey?.includes('sk-')) {
+    //   alert('Please enter an API key.');
+    //   return;
+    // }
 
     if (!inputCode) {
       alert('Please enter your message.');
@@ -188,6 +190,7 @@ export default function Chat(props: { apiKeyApp: string }) {
             borderRadius="60px"
           >
             <Flex
+              className="bg-red-500"
               cursor={'pointer'}
               transition="0.3s"
               justify={'center'}
@@ -221,17 +224,51 @@ export default function Chat(props: { apiKeyApp: string }) {
               </Flex>
               {fileName && <Text>{fileName}</Text>}
               <input
-                className="p-4"
+                className=""
                 type="file"
                 id="fileInput"
                 style={{ display: 'none' }}
-                onChange={(event) => {
+                onChange={async (event) => {
                   const file = event.target.files[0];
                   setFileName(file.name);
-                  // handle the file here
+                  setFile(file);
                 }}
               />
             </Flex>
+            <button
+              onClick={async () => {
+                if (!file) {
+                  console.log('No file selected');
+                  return;
+                }
+
+                // Create a new FormData instance
+                const formData = new FormData();
+
+                // Append the file to the formData instance
+                formData.append('file', file);
+
+                // Send the file to the server
+                try {
+                  const response = await fetch('http://127.0.0.1:5000/upload', {
+                    method: 'POST',
+                    body: formData,
+                  });
+
+                  if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                  }
+
+                  const data = await response.json();
+                  console.log(data);
+                } catch (error) {
+                  console.error('Error:', error);
+                }
+              }}
+            >
+              Upload
+            </button>
+            <div className=" bg-orange-800">sfasdfasdf sadfasdfsadfasd</div>
             {/* <Flex
               cursor={'pointer'}
               transition="0.3s"
