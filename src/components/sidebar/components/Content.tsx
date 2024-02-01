@@ -84,9 +84,9 @@ function SidebarContent(props: SidebarContent) {
       >
         <NextAvatar h="34px" w="34px" src={avatar4} me="10px" />
         <Text color={textColor} fontSize="xs" fontWeight="600" me="10px">
-          Adela Parkson
+          User Name
         </Text>
-        <Menu>
+        {/* <Menu>
           <MenuButton
             as={Button}
             variant="transparent"
@@ -259,7 +259,7 @@ function SidebarContent(props: SidebarContent) {
               </Flex>
             </Box>
           </MenuList>
-        </Menu>
+        </Menu> */}
         <Button
           variant="transparent"
           border="1px solid"

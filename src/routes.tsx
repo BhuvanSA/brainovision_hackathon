@@ -94,45 +94,45 @@ const routes: IRoute[] = [
   //     },
   //   ],
   // },
-  {
-    name: 'Profile Settings',
-    disabled: true,
-    path: '/settings',
-    icon: (
-      <Icon
-        as={MdOutlineManageAccounts}
-        width="20px"
-        height="20px"
-        color="inherit"
-      />
-    ),
-    invisible: true,
-    collapse: false,
-  },
-  {
-    name: 'History',
-    disabled: true,
-    path: '/history',
-    icon: <Icon as={LuHistory} width="20px" height="20px" color="inherit" />,
-    invisible: true,
-    collapse: false,
-  },
-  {
-    name: 'Usage',
-    disabled: true,
-    path: '/usage',
-    icon: <Icon as={RoundedChart} width="20px" height="20px" color="inherit" />,
-    invisible: true,
-    collapse: false,
-  },
-  {
-    name: 'My plan',
-    disabled: true,
-    path: '/my-plan',
-    icon: <Icon as={RoundedChart} width="20px" height="20px" color="inherit" />,
-    invisible: true,
-    collapse: false,
-  },
+  // {
+  //   name: 'Profile Settings',
+  //   disabled: true,
+  //   path: '/settings',
+  //   icon: (
+  //     <Icon
+  //       as={MdOutlineManageAccounts}
+  //       width="20px"
+  //       height="20px"
+  //       color="inherit"
+  //     />
+  //   ),
+  //   invisible: true,
+  //   collapse: false,
+  // },
+  // {
+  //   name: 'History',
+  //   disabled: true,
+  //   path: '/history',
+  //   icon: <Icon as={LuHistory} width="20px" height="20px" color="inherit" />,
+  //   invisible: true,
+  //   collapse: false,
+  // },
+  // {
+  //   name: 'Usage',
+  //   disabled: true,
+  //   path: '/usage',
+  //   icon: <Icon as={RoundedChart} width="20px" height="20px" color="inherit" />,
+  //   invisible: true,
+  //   collapse: false,
+  // },
+  // {
+  //   name: 'My plan',
+  //   disabled: true,
+  //   path: '/my-plan',
+  //   icon: <Icon as={RoundedChart} width="20px" height="20px" color="inherit" />,
+  //   invisible: true,
+  //   collapse: false,
+  // },
   // -------------- Prompt Pages --------------
   {
     name: 'Essay Generator',

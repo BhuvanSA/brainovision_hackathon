@@ -145,9 +145,9 @@ export default function AdminNavbar(props: {
             {brandText}
           </Link>
         </Box>
-        <Box ms="auto" w={{ sm: '100%', md: 'unset' }}>
-          <AdminNavbarLinks setApiKey={setApiKey} secondary={props.secondary} />
-        </Box>
+        {/* <Box ms="auto" w={{ sm: '100%', md: 'unset' }}> */}
+        {/* <AdminNavbarLinks setApiKey={setApiKey} secondary={props.secondary} /> */}
+        {/* </Box> */}
       </Flex>
     </Box>
   );

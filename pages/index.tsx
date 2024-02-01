@@ -253,35 +253,6 @@ export default function Chat(props: { apiKeyApp: string }) {
               GPT-4
             </Flex>
           </Flex>
-
-          <Accordion color={gray} allowToggle w="100%" my="0px" mx="auto">
-            <AccordionItem border="none">
-              <AccordionButton
-                borderBottom="0px solid"
-                maxW="max-content"
-                mx="auto"
-                _hover={{ border: '0px solid', bg: 'none' }}
-                _focus={{ border: '0px solid', bg: 'none' }}
-              >
-                <Box flex="1" textAlign="left">
-                  <Text color={gray} fontWeight="500" fontSize="sm">
-                    No plugins added
-                  </Text>
-                </Box>
-                <AccordionIcon color={gray} />
-              </AccordionButton>
-              <AccordionPanel mx="auto" w="max-content" p="0px 0px 10px 0px">
-                <Text
-                  color={gray}
-                  fontWeight="500"
-                  fontSize="sm"
-                  textAlign={'center'}
-                >
-                  This is a cool text example.
-                </Text>
-              </AccordionPanel>
-            </AccordionItem>
-          </Accordion>
         </Flex>
         {/* Main Box */}
         <Flex
