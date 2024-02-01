@@ -25,6 +25,7 @@ import { MdAutoAwesome, MdBolt, MdEdit, MdPerson } from 'react-icons/md';
 import Bg from '../public/img/chat/bg-image.png';
 
 export default function Chat(props: { apiKeyApp: string }) {
+  const [fileName, setFileName] = useState<string>('Select File');
   // *** If you use .env.local variable for your API key, method which we recommend, use the apiKey variable commented below
   const { apiKeyApp } = props;
   // Input States
@@ -199,9 +200,10 @@ export default function Chat(props: { apiKeyApp: string }) {
               color={textColor}
               fontSize="18px"
               fontWeight={'700'}
-              onClick={() => setModel('gpt-3.5-turbo')}
+              onClick={() => document.getElementById('fileInput')?.click()}
             >
               <Flex
+                className="p-10"
                 borderRadius="full"
                 justify="center"
                 align="center"
@@ -217,9 +219,20 @@ export default function Chat(props: { apiKeyApp: string }) {
                   color={iconColor}
                 />
               </Flex>
-              goutham city
+              {fileName && <Text>{fileName}</Text>}
+              <input
+                className="p-4"
+                type="file"
+                id="fileInput"
+                style={{ display: 'none' }}
+                onChange={(event) => {
+                  const file = event.target.files[0];
+                  setFileName(file.name);
+                  // handle the file here
+                }}
+              />
             </Flex>
-            <Flex
+            {/* <Flex
               cursor={'pointer'}
               transition="0.3s"
               justify={'center'}
@@ -234,24 +247,8 @@ export default function Chat(props: { apiKeyApp: string }) {
               fontWeight={'700'}
               onClick={() => setModel('gpt-4')}
             >
-              <Flex
-                borderRadius="full"
-                justify="center"
-                align="center"
-                bg={bgIcon}
-                me="10px"
-                h="39px"
-                w="39px"
-              >
-                <Icon
-                  as={MdBolt}
-                  width="20px"
-                  height="20px"
-                  color={iconColor}
-                />
-              </Flex>
-              GPT-4
-            </Flex>
+            { Some codes have been deleted}
+            </Flex> */}
           </Flex>
         </Flex>
         {/* Main Box */}
