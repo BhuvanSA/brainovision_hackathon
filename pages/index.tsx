@@ -217,7 +217,7 @@ export default function Chat(props: { apiKeyApp: string }) {
                   color={iconColor}
                 />
               </Flex>
-              GPT-3.5
+              goutham city
             </Flex>
             <Flex
               cursor={'pointer'}
@@ -392,8 +392,7 @@ export default function Chat(props: { apiKeyApp: string }) {
             _hover={{
               boxShadow:
                 '0px 21px 27px -10px rgba(96, 60, 255, 0.48) !important',
-              bg:
-                'linear-gradient(15.46deg, #4A25E1 26.3%, #7B5AFF 86.4%) !important',
+              bg: 'linear-gradient(15.46deg, #4A25E1 26.3%, #7B5AFF 86.4%) !important',
               _disabled: {
                 bg: 'linear-gradient(15.46deg, #4A25E1 26.3%, #7B5AFF 86.4%)',
               },

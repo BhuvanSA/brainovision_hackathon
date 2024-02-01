@@ -151,7 +151,7 @@ export function SidebarLinks(props: SidebarLinksProps) {
                     </Flex>
                   )}
                 </AccordionButton>
-                <AccordionPanel py="0px" ps={'8px'}>
+                {/* <AccordionPanel py="0px" ps={'8px'}>
                   <List>
                     {
                       route.icon && route.items
@@ -161,7 +161,7 @@ export function SidebarLinks(props: SidebarLinksProps) {
                         : '' // for non-bullet accordion links
                     }
                   </List>
-                </AccordionPanel>
+                </AccordionPanel> */}
               </AccordionItem>
               <Link
                 isExternal
@@ -177,7 +177,7 @@ export function SidebarLinks(props: SidebarLinksProps) {
                   letterSpacing="0px"
                   px="8px"
                 >
-                  PRO
+                  bhu
                 </Badge>
               </Link>
             </Flex>
@@ -202,58 +202,13 @@ export function SidebarLinks(props: SidebarLinksProps) {
                     activeRoute(route.path.toLowerCase()) ? '22px' : '26px'
                   }
                 >
-                  {route.name === 'Chat UI' ? (
-                    <NavLink
-                      href={
-                        route.layout ? route.layout + route.path : route.path
-                      }
-                      key={key}
-                      styles={{ width: '100%' }}
-                    >
-                      <Flex
-                        w="100%"
-                        alignItems="center"
-                        justifyContent="center"
-                      >
-                        <Box
-                          color={
-                            route.disabled
-                              ? gray
-                              : activeRoute(route.path.toLowerCase())
-                              ? activeIcon
-                              : inactiveColor
-                          }
-                          me="12px"
-                          mt="6px"
-                        >
-                          {route.icon}
-                        </Box>
-                        <Text
-                          me="auto"
-                          color={
-                            route.disabled
-                              ? gray
-                              : activeRoute(route.path.toLowerCase())
-                              ? activeColor
-                              : 'gray.500'
-                          }
-                          fontWeight="500"
-                          letterSpacing="0px"
-                          fontSize="sm"
-                        >
-                          {route.name}
-                        </Text>
-                      </Flex>
-                    </NavLink>
-                  ) : (
-                    <Flex
-                      w="100%"
-                      alignItems="center"
-                      justifyContent="center"
-                      cursor="not-allowed"
-                    >
+                  <NavLink
+                    href={route.layout ? route.layout + route.path : route.path}
+                    key={key}
+                    styles={{ width: '100%' }}
+                  >
+                    <Flex w="100%" alignItems="center" justifyContent="center">
                       <Box
-                        opacity="0.4"
                         color={
                           route.disabled
                             ? gray
@@ -267,7 +222,6 @@ export function SidebarLinks(props: SidebarLinksProps) {
                         {route.icon}
                       </Box>
                       <Text
-                        opacity="0.4"
                         me="auto"
                         color={
                           route.disabled
@@ -282,24 +236,8 @@ export function SidebarLinks(props: SidebarLinksProps) {
                       >
                         {route.name}
                       </Text>
-                      <Link
-                        isExternal
-                        href="https://horizon-ui.com/ai-template"
-                      >
-                        <Badge
-                          display={{ base: 'flex', lg: 'none', xl: 'flex' }}
-                          colorScheme="brand"
-                          borderRadius="25px"
-                          color="brand.500"
-                          textTransform={'none'}
-                          letterSpacing="0px"
-                          px="8px"
-                        >
-                          PRO
-                        </Badge>
-                      </Link>
                     </Flex>
-                  )}
+                  </NavLink>
                 </HStack>
               </Flex>
             ) : (

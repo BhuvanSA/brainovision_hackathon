@@ -38,15 +38,15 @@ export default function SidebarDocs() {
       >
         <Img src={logoWhite.src} w="40px" h="40px" />
       </Flex>
-      <Flex
+      {/* <Flex
         direction="column"
         mb="12px"
         align="center"
         justify="center"
         px="15px"
         pt="55px"
-      >
-        <Text
+      > */}
+      {/* <Text
           fontSize={{ base: 'lg', xl: '18px' }}
           color="white"
           fontWeight="bold"
@@ -55,12 +55,12 @@ export default function SidebarDocs() {
           mb="14px"
         >
           Go unlimited with PRO
-        </Text>
-        <Text fontSize="14px" color={'white'} mb="14px" textAlign="center">
+        </Text> */}
+      {/* <Text fontSize="14px" color={'white'} mb="14px" textAlign="center">
           Get your AI Project to another level and start doing more with Horizon
           AI Template PRO!
-        </Text>
-      </Flex>
+        </Text> */}
+      {/* </Flex> */}
       <Link href="https://horizon-ui.com/ai-template" isExternal>
         <Button
           bg="whiteAlpha.300"
