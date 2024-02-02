@@ -13,7 +13,7 @@ import '@/styles/App.css';
 import '@/styles/Contact.css';
 import '@/styles/Plugins.css';
 import '@/styles/MiniCalendar.css';
-import '@/styles/globals.css';
+import '../src/styles/globals.css';
 
 function App({ Component, pageProps }: AppProps<{}>) {
   const pathname = usePathname();

@@ -28,6 +28,7 @@ import Bg from '../public/img/chat/bg-image.png';
 export default function Chat(props: { apiKeyApp: string }) {
   const [fileName, setFileName] = useState<string>('Select File');
   const [file, setFile] = useState<File>();
+  const [chatHistory, setChatHistory] = useState<string[]>([]);
   // *** If you use .env.local variable for your API key, method which we recommend, use the apiKey variable commented below
   const { apiKeyApp } = props;
   // Input States
@@ -64,6 +65,10 @@ export default function Chat(props: { apiKeyApp: string }) {
   const handleTranslate = async () => {
     const apiKey = apiKeyApp;
     setInputOnSubmit(inputCode);
+    setChatHistory((prevHistory) => [
+      ...prevHistory,
+      { user: inputCode, bot: '' },
+    ]);
 
     // Chat post conditions(maximum number of characters, valid message etc.)
     const maxCodeLength = model === 'gpt-3.5-turbo' ? 700 : 700;
@@ -94,7 +99,7 @@ export default function Chat(props: { apiKeyApp: string }) {
     };
 
     // -------------- Fetch --------------
-    const response = await fetch('/api/chatAPI', {
+    const response = await fetch('http://127.0.0.1:5000/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -134,6 +139,19 @@ export default function Chat(props: { apiKeyApp: string }) {
     }
 
     setLoading(false);
+    if (outputCode) {
+      setChatHistory((prevHistory) => {
+        // Copy the previous history
+        const newHistory = [...prevHistory];
+
+        // Add the bot response to the last message
+        const lastMessage = newHistory[newHistory.length - 1];
+        lastMessage.bot = outputCode;
+
+        return newHistory;
+      });
+      console.log(chatHistory);
+    }
   };
   // -------------- Copy Response --------------
   // const copyToClipboard = (text: string) => {
@@ -205,16 +223,7 @@ export default function Chat(props: { apiKeyApp: string }) {
               fontWeight={'700'}
               onClick={() => document.getElementById('fileInput')?.click()}
             >
-              <Flex
-                className="p-10"
-                borderRadius="full"
-                justify="center"
-                align="center"
-                bg={bgIcon}
-                me="10px"
-                h="39px"
-                w="39px"
-              >
+              <Flex class="file-input" bg={bgIcon}>
                 <Icon
                   as={MdAutoAwesome}
                   width="20px"
@@ -224,7 +233,6 @@ export default function Chat(props: { apiKeyApp: string }) {
               </Flex>
               {fileName && <Text>{fileName}</Text>}
               <input
-                className=""
                 type="file"
                 id="fileInput"
                 style={{ display: 'none' }}
@@ -236,6 +244,7 @@ export default function Chat(props: { apiKeyApp: string }) {
               />
             </Flex>
             <button
+              class="file-upload-btn"
               onClick={async () => {
                 if (!file) {
                   console.log('No file selected');
@@ -268,7 +277,7 @@ export default function Chat(props: { apiKeyApp: string }) {
             >
               Upload
             </button>
-            <div className=" bg-orange-800">sfasdfasdf sadfasdfsadfasd</div>
+
             {/* <Flex
               cursor={'pointer'}
               transition="0.3s"
